@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "npx playwright test"
+  },
+  "scripts": {
+  "start": "serve .",
   "test": "npx playwright test"
 },
   "repository": {
@@ -19,6 +23,7 @@
   },
   "homepage": "https://github.com/Nishat-tech/login#readme",
   "devDependencies": {
-    "@playwright/test": "^1.55.0"
+    "@playwright/test": "^1.55.0",
+    "serve": "^14.2.4"
   }
 }

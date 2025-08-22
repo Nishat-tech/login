@@ -25,5 +25,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Run tests
-      run: npm test
+    # 👇 Playwright automatically starts "npm start" server 
+    # because of playwright.config.js webServer option
+    - name: Run Playwright tests
+      run: npx playwright test
