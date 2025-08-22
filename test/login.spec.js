@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 test('Login form visible', async ({ page }) => {
-  await page.goto('file:///C:/Users/nisha/LoginDemo/login.html');
+  await page.goto('file://C:/Users/nisha/LoginDemo/login.html');
   await page.pause
 
   // check heading
