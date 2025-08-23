@@ -1,9 +1,7 @@
-name: CI
+name: Node.js Sequential CI/CD
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -16,3 +14,22 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: echo "✅ Build completed"
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npx playwright test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "🚀 Deploying to production..."
